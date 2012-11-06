@@ -142,9 +142,9 @@ public class SalaryState2010 {
 			results.close();
 //			System.out.println(recorded);
 			resume[0]=pageNumber;
-			System.out.println(resume[0]);
+//			System.out.println(resume[0]);
 			resume[1]=(recorded % 10) + 2;
-			System.out.println(resume[1]);
+//			System.out.println(resume[1]);
 			return resume;
 		}
 		catch(Exception e){ 
@@ -243,6 +243,7 @@ public String[] findname(String name){
 	}
 
 	public void crawlPage(int pageNumber, int startIndex) throws Exception{
+		System.out.println("Reading Started");
 
 		for(int i=startIndex;i<=11;i++){
 			ArrayList<String> list = new ArrayList<String>();
@@ -298,8 +299,7 @@ public String[] findname(String name){
 		try{
 			driver.get("http://www.mercurynews.com/salaries/state/2010?cpipage="+pageNumber);
 //			sel.open("http://www.mercurynews.com/salaries/state/2010?cpipage="+pageNumber);
-			System.out.println("Reading Page Number :"+pageNumber); 
-			System.out.println("check");
+			System.out.println("Reading Page Number :"+pageNumber);  
 			driver.getPageSource();
 			new WebDriverWait(driver, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//form/table/tbody/tr/td/div/table/tbody/tr[11]/td[12]")));
 
